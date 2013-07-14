@@ -1,7 +1,11 @@
 AbcWebsite::Application.routes.draw do
   get "static_pages/home"
-
   get "static_pages/help"
+  get "static_pages/about"
+  get "static_pages/employee"
+  get "static_pages/customer"
+  get "static_pages/career"
+  get "static_pages/administration"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
