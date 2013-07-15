@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'bootstrap-sass', '2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,15 +21,22 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
-  gem 'pg'
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11'
   gem 'factory_girl', '2.6.4'
+  gem 'guard-rspec', '1.2.1'
+  gem 'guard-rails'
+  gem 'guard-spork', '1.2.0'
+  gem 'childprocess', '0.3.6'
+  gem 'spork', '0.9.2'
 end
 
 group :test do
   gem 'capybara', '1.1.2'
   gem 'email_spec', '1.2.1'
   gem 'launchy'
+  gem 'rb-inotify', '~> 0.9'
+  gem 'libnotify', '0.5.9'
 end
 
 group :production do

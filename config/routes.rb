@@ -1,11 +1,16 @@
 AbcWebsite::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
-  get "static_pages/employee"
-  get "static_pages/customer"
-  get "static_pages/career"
-  get "static_pages/administration"
+  root to: 'static_pages#home'
+
+  match '/signup', to: 'users#new'
+  match '/services', to: 'static_pages#services'
+  match '/customer', to: 'static_pages#customer'
+  match '/career', to: 'static_pages#career'
+  match '/help', to: 'static_pages#help'
+  match '/about', to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  match '/employee', to: 'static_pages#employee'
+
+  match '/administration', to: 'static_pages#administration'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
