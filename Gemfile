@@ -24,7 +24,8 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11'
-  gem 'factory_girl', '2.6.4'
+  #gem 'factory_girl', '2.6.4'
+  gem 'factory_girl', '~> 4.2.0'
   gem 'guard-rspec', '1.2.1'
   gem 'guard-rails'
   gem 'guard-spork', '1.2.0'
@@ -38,10 +39,12 @@ group :test do
   gem 'launchy'
   gem 'rb-inotify', '~> 0.9'
   gem 'libnotify', '0.5.9'
+  gem 'factory_girl_rails', '4.2.1'
 end
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'bullet'
 end
 
 group :production do
@@ -50,6 +53,7 @@ end
 
 gem 'devise', '2.1.0'
 gem 'cancan', '1.6.7'
+gem 'rack-mini-profiler'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
