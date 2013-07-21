@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+# gem 'rails', '4.0'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 
@@ -24,7 +25,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11'
-  #gem 'factory_girl', '2.6.4'
+  # gem 'factory_girl', '2.6.4'
   gem 'factory_girl', '~> 4.2.0'
   gem 'guard-rspec', '1.2.1'
   gem 'guard-rails'
@@ -51,7 +52,6 @@ group :production do
   gem 'pg'
 end
 
-gem 'devise', '2.1.0'
 gem 'cancan', '1.6.7'
 gem 'rack-mini-profiler'
 
