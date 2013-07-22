@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-# gem 'rails', '4.0'
 gem 'bootstrap-sass', '2.1'
-gem 'bcrypt-ruby', '3.0.1'
+gem 'jquery-rails'
+gem 'strong_parameters'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,12 +20,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11'
-  # gem 'factory_girl', '2.6.4'
   gem 'factory_girl', '~> 4.2.0'
   gem 'guard-rspec', '1.2.1'
   gem 'guard-rails'
@@ -52,11 +49,11 @@ group :production do
   gem 'pg'
 end
 
-gem 'cancan', '1.6.7'
+# Performance
 gem 'rack-mini-profiler'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '3.0.1'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

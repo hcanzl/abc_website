@@ -8,18 +8,14 @@ describe "UserPages" do
 
     it { should have_selector('h1', text: 'Sign up') }
     it { should have_selector('title', text: full_title('Sign up')) }
-    #it { should have_content('Sign Up') }
-    #it { should have_title(full_title('Signup')) }
   end
 
   describe "profile page" do
-    # Replace with code to make a user variable
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_selector('title', text: full_title(user.name)) }
-    #it { should have_title(user.name) }
   end
 
   describe "signup" do

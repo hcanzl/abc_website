@@ -60,7 +60,6 @@ describe "StaticPages" do
     it { should have_selector('title', text: full_title('Administration')) }
   end
 
-  # TODO remove <% provide statement in each view - debug full_title
   # Only testing the links from the home page
   before { visit root_path }
   {'Home' => '', 'About' => 'About', 'Help' => 'Help', 'Contact Us' => 'Contact',
