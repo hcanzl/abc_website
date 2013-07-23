@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 gem 'jquery-rails'
 gem 'strong_parameters'
+gem "better_errors", "~> 0.9.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

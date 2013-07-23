@@ -33,6 +33,9 @@ GEM
       rake
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     bootstrap-sass (2.1.0.0)
     builder (3.0.4)
     bullet (4.6.0)
@@ -204,6 +207,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
+  better_errors (~> 0.9.0)
   bootstrap-sass (= 2.1)
   bullet
   capybara (= 1.1.2)
