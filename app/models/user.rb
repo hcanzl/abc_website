@@ -12,14 +12,18 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
+  # TODO REMOVE Note needed for strong parameters
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 64 }
 
+  #VALID_EMAIL_REGEX = /\A[\w+\-.]+@abcinc\.com\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  # LOGIN WITH allowed e-mail only, add a message
 
   has_secure_password
   validates :password, length: { minimum: 6 }
