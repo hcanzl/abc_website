@@ -11,13 +11,6 @@ describe "StaticPages" do
     it { should_not have_selector('title', text: '| Home') }
   end
 
-  describe "Help Page" do
-    before { visit help_path }
-
-    it { should have_selector('h1',    text: 'Help Page') }
-    it { should have_selector('title', text: full_title('Help')) }
-  end
-
   describe "About Page" do
     before { visit about_path }
 
@@ -60,11 +53,11 @@ describe "StaticPages" do
     it { should have_selector('title', text: full_title('Administration')) }
   end
 
-  # Only testing the links from the home page
+  # Only testing the links from the home page with no logged in user
   before { visit root_path }
-  {'Home' => '', 'About' => 'About', 'Help' => 'Help', 'Contact Us' => 'Contact',
-    'Employee' => 'Employee', 'Customer' => 'Customer',
-    'Services' => 'Services', 'Administration' => 'Admin', 'ABC Inc.' => ''}.each do |link, title|
+  {'Home' => '', 'About' => 'About', 'Contact Us' => 'Contact',
+    'Employee' => 'Sign in', 'Customer' => 'Customer',
+    'Services' => 'Services','ABC Inc.' => ''}.each do |link, title|
 
     it "should have the right links on the layout" do
       click_link link

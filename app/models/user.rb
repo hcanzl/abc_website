@@ -12,7 +12,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
-  # TODO REMOVE Note needed for strong parameters
+  # TODO REMOVE Not needed if strong parameters
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 64 }

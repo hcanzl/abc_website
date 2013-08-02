@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update]
-  #before_action :signed_in_user, only: [:edit, :update]
+  #before_action :signed_in_user, only: [:index, :edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
 
   def new
@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to ABC, Inc. Webpage"
-      redirect_to @user
+      #redirect_to @user
+      redirect_to employee_url
     else
       render 'new'
     end

@@ -34,7 +34,8 @@ describe "AuthenticationPages" do
       #   click_button "Sign in"
       # end
 
-      it { should have_selector('title', text: full_title(user.name)) }
+      #it { should have_selector('title', text: full_title(user.name)) }
+      it { should have_selector('title', text: full_title('Employee'))}
       it { should have_link('Users',       href: users_path) }
       it { should have_link('Profile',     href: user_path(user)) }
       it { should have_link('Settings',    href: edit_user_path(user)) }
@@ -43,7 +44,8 @@ describe "AuthenticationPages" do
 
       describe "followed by signout" do
         before { click_link "Sign out" }
-        it { should have_link('Sign in') }
+        #it { should have_link('Sign in') } # orig
+        it { should have_link('Employee') }
       end
     end
   end
@@ -64,7 +66,8 @@ describe "AuthenticationPages" do
         describe "after signing in" do
           it "should render the desired protected page" do
             #expect(page).to have_title(full_title('Edit user'))
-            expect(page).to have_selector('title', text: full_title(user.name))
+            #expect(page).to have_selector('title', text: full_title(user.name))
+            expect(page).to have_selector('title', text: full_title('Employee'))
           end
         end
       end
