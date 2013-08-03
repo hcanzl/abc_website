@@ -57,7 +57,7 @@ describe "StaticPages" do
   before { visit root_path }
   {'Home' => '', 'About' => 'About', 'Contact Us' => 'Contact',
     'Employee' => 'Sign in', 'Customer' => 'Customer',
-    'Services' => 'Services','ABC Inc.' => ''}.each do |link, title|
+    'Services' => 'Services',"#{I18n.t("company.name")}" => ''}.each do |link, title|
 
     it "should have the right links on the layout" do
       click_link link

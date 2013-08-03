@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '2.1'
 gem 'jquery-rails'
 gem 'strong_parameters'
 gem "better_errors", "~> 0.9.0"
+gem 'browser-timezone-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
