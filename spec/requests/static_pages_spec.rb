@@ -64,5 +64,4 @@ describe "StaticPages" do
       page.should have_selector 'title', text: full_title(title)
     end
   end
-
 end

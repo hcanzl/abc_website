@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update]
-  #before_action :signed_in_user, only: [:index, :edit, :update]
+  #before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :correct_user,   only: [:show, :edit, :update]
+  before_filter :admin_user,     only: :destroy
 
   def new
     @user = User.new
@@ -16,8 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to ABC, Inc. Webpage"
-      #redirect_to @user
+      flash[:success] = "Welcome to #{I18n.t("company.name")} webpage"
       redirect_to employee_url
     else
       render 'new'
@@ -40,7 +40,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_url
   end
 
   private
@@ -52,11 +58,16 @@ class UsersController < ApplicationController
 
     # Before filters
     def signed_in_user
+      store_location
       redirect_to signin_url, notice: "Please sign in." unless signed_in?
     end
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user) #|| current_user.admin?
+      redirect_to(root_url) unless current_user?(@user) || current_user.admin?
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

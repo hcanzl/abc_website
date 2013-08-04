@@ -11,7 +11,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  #ttr_accessible :email, :name, :password, :password_confirmation
   # TODO REMOVE Not needed if strong parameters
 
   before_save { self.email = email.downcase }
