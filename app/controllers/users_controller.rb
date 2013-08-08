@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.signup_confirmation(@user).deliver
       sign_in @user
       flash[:success] = "Welcome to #{I18n.t("company.name")} webpage"
       redirect_to employee_url
