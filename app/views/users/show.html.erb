@@ -2,12 +2,16 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
+      <h2>
+        <%= gravatar_for @user, size: 55 %>
+      </h2>
     </section>
   </aside>
 </div>
 
-<%= @user.name %>, <%= @user.email %>
+<h2><p align="left">Employee Information:</p></h2>
+<b> Name: </b> <%= @user.name %><br />
+<b> Position: </b> <%= @user.position %> </br></br>
+<b>Email: </b> <%= @user.email %> </br>
+<b>Phone Number: </b> <%= @user.phone %> </br>
+<b>Mailing Address: </b> <%= @user.address %>

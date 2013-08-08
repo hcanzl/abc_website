@@ -11,35 +11,32 @@ describe "UserPages" do
       visit users_path
     end
 
-    it { should have_selector('title', text: full_title('All users')) }
-    it { should have_selector('h1', text: 'All users') }
+    it { should_not have_link('All users') }
 
-   describe "pagination" do
-
-      before(:all) { 30.times { FactoryGirl.create(:user) } }
-      after(:all)  { User.delete_all }
-
-      it { should have_selector('div.pagination') }
-
-      it "should list each user" do
-        User.all.each do |user|
-          puts "#{user.name}\n"
-          expect(page).to have_selector('li', text: user.name)
-        end
-      end
-    end
-
-    describe "delete links" do
-
-      it { should_not have_link('delete') }
-
-      describe "as an admin user" do
-        let(:admin) { FactoryGirl.create(:admin) }
+    describe "as an admin user" do
+      let(:admin) { FactoryGirl.create(:admin) }
         before do
           sign_in admin
           visit users_path
-        end
+      end
 
+      it { should have_selector('title', text: full_title('All users')) }
+      it { should have_selector('h1', text: 'All users') }
+
+      describe "pagination" do
+        before(:all) { 30.times { FactoryGirl.create(:user) } }
+        after(:all)  { User.delete_all }
+
+        it { should have_selector('div.pagination') }
+
+        it "should list each user" do
+          User.all.each do |user|
+            expect(page).to have_selector('li', text: user.name)
+          end
+        end
+      end
+
+      describe "delete links" do
         it { should have_link('delete', href: user_path(User.first)) }
 
         it "should be able to delete another user" do
@@ -87,7 +84,7 @@ describe "UserPages" do
         fill_in "Name",         with: "Example User"
         fill_in "Email",        with: "user@example.com"
         fill_in "Password",     with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Confirm Password", with: "foobar"
       end
 
       it "should create a user" do

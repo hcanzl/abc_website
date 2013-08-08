@@ -8,6 +8,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#  position        :string(255)      default("")
+#  address         :string(255)      default("")
+#  phone           :string(255)      default("")
 #
 
 require 'spec_helper'
@@ -75,15 +80,6 @@ describe User do
         @user.should be_valid
       end
     end
-  end
-
-  describe "when email address is already taken" do
-    before do
-      user_with_same_email = @user.dup
-      user_with_same_email.save
-    end
-
-    it { should_not be_valid }
   end
 
   describe "when email address is already taken" do

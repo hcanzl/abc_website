@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
-  #before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :correct_user,   only: [:show, :edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :admin_user,     only: [:index, :destroy]
+  before_filter :find_user,      only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def create
@@ -25,11 +24,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       sign_in @user
@@ -44,8 +41,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    @user.destroy
+    flash[:success] = "User #{@user.name} destroyed."
     redirect_to users_url
   end
 
@@ -53,7 +50,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :position, :address, :phone)
     end
 
     # Before filters
@@ -63,11 +60,15 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-      @user = User.find(params[:id])
+      find_user
       redirect_to(root_url) unless current_user?(@user) || current_user.admin?
     end
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def find_user
+      @user = User.find(params[:id])
     end
 end

@@ -8,11 +8,14 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#  position        :string(255)      default("")
+#  address         :string(255)      default("")
+#  phone           :string(255)      default("")
 #
 
 class User < ActiveRecord::Base
-  #ttr_accessible :email, :name, :password, :password_confirmation
-  # TODO REMOVE Not needed if strong parameters
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 64 }
@@ -23,10 +26,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  # LOGIN WITH allowed e-mail only, add a message
+  #TODO: Allow company e-mail only add a message for invalid emails
 
   has_secure_password
   validates :password, length: { minimum: 6 }
+  #TODO: validates :phone, length: { is: 10 }
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
