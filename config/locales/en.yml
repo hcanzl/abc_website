@@ -5,6 +5,10 @@ en:
   company:
     name: CSSC
     long_name: Critical Software Systems Consultancy
+    address1: "#1 Opal Street, Ecoland PH 4"
+    address2: "Davao City, 8000 Philippines"
+    phone_num: (63) 82-297-3827
+    email: sendtestproj@gmail.com
 
   developer:
     name: XYZ Consulting
