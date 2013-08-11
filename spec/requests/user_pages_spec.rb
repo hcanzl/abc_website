@@ -21,7 +21,7 @@ describe "UserPages" do
       end
 
       it { should have_selector('title', text: full_title('All users')) }
-      it { should have_selector('h1', text: 'All users') }
+      it { should have_selector('h2', text: 'All users') }
 
       describe "pagination" do
         before(:all) { 30.times { FactoryGirl.create(:user) } }
@@ -53,7 +53,7 @@ describe "UserPages" do
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1', text: 'Sign up') }
+    it { should have_selector('h2', text: 'Sign up') }
     it { should have_selector('title', text: full_title('Sign up')) }
   end
 

@@ -9,7 +9,6 @@ AbcWebsite::Application.routes.draw do
   match '/services', to: 'static_pages#services'
   match '/customer', to: 'static_pages#customer'
   match '/career', to: 'static_pages#career'
-  match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/employee', to: 'static_pages#employee'
