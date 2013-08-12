@@ -7,10 +7,10 @@ gem 'jquery-rails'
 gem 'strong_parameters'
 gem "better_errors", "~> 0.9.0"
 gem 'browser-timezone-rails'
-gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'figaro'
+gem 'pg'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -25,13 +25,9 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-
-  # Add zurb foundation gem here
-  #gem 'zurb-foundation'
 end
 
 group :test, :development do
-  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11'
   gem 'factory_girl', '~> 4.2.0'
   gem 'guard-rspec', '1.2.1'
@@ -40,6 +36,7 @@ group :test, :development do
   gem 'childprocess', '0.3.6'
   gem 'spork', '0.9.2'
   gem 'binding_of_caller'
+  gem 'faker', '1.1.2'
 end
 
 group :test do
@@ -54,10 +51,6 @@ end
 group :development do
   gem 'annotate', '2.5.0'
   gem 'bullet'
-end
-
-group :production do
-  gem 'pg'
 end
 
 # Performance
