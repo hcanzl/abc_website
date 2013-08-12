@@ -9,8 +9,8 @@ gem "better_errors", "~> 0.9.0"
 gem 'browser-timezone-rails'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'pg', '0.15.1'
 gem 'figaro'
-gem 'pg'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -51,6 +51,10 @@ end
 group :development do
   gem 'annotate', '2.5.0'
   gem 'bullet'
+end
+
+group :production do
+  gem 'rails_12factor', '0.0.2'
 end
 
 # Performance
