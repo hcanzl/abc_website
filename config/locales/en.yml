@@ -3,11 +3,11 @@
 
 en:
   company:
-    name: CSSC
-    long_name: Critical Software Systems Consultancy
-    address1: "#1 Opal Street, Ecoland PH 4"
-    address2: "Davao City, 8000 Philippines"
-    phone_num: (63) 82-297-3827
+    name: ABC Inc.
+    long_name: ABC Incorporated
+    address1: "#1675 Washington St., Bothell"
+    address2: "Bothell, WA, 98021"
+    phone_num: (1) 206-555-5555
     email: sendtestproj@gmail.com
 
   developer:
