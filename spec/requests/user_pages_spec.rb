@@ -24,8 +24,7 @@ describe "UserPages" do
       it { should have_selector('h2', text: 'All users') }
 
       describe "pagination" do
-        before(:all) { 6.times { FactoryGirl.create(:user) } }
-        #before(:all) { {I18n.t("pagination.num_users").times { FactoryGirl.create(:user) } }
+        before(:all) { 5.times { FactoryGirl.create(:user) } }
 
         after(:all)  { User.delete_all }
 

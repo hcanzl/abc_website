@@ -38,8 +38,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate :page => params[:page], :per_page => 5, :order => 'name ASC'
-    #@users = User.paginate :page => params[:page], :per_page => I18n.t("pagination.num_users"), :order => 'name ASC'
+    @users = User.paginate :page => params[:page], :order => 'name ASC'
   end
 
   def destroy

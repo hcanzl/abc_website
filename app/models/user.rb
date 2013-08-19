@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   #TODO: validates :phone, length: { is: 10 }
 
+  # Set default no. of users per page
+  self.per_page = 5
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
