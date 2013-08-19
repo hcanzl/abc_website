@@ -1,6 +1,8 @@
 AbcWebsite::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :payslip
+
   root to: 'static_pages#home'
 
   match '/signup', to: 'users#new'
@@ -14,6 +16,7 @@ AbcWebsite::Application.routes.draw do
   match '/employee', to: 'static_pages#employee'
 
   match '/administration', to: 'static_pages#administration'
+  match '/payslip', to: 'payslip#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
