@@ -20,3 +20,13 @@ User.create!(name: "Jerome Reyes",
                 password_confirmation: "foobar",
                 phone: "206-255-255",
                 address: "12345 Washington St., Bothell, WA, 98021")
+
+15.times do |n|
+  name  = "example-#{n+1} User"
+  email = "example-#{n+1}@example.org"
+  password  = "password"
+  User.create!(name: name,
+    email: email,
+    password: password,
+    password_confirmation: password)
+end
