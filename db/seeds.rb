@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Create an admin user
+User.create!(name: "Admin User",
+                email: "admin@abc-website.com",
+                password: "foobar",
+                password_confirmation: "foobar",
+                admin: true)
+
+# Create a standard user
+User.create!(name: "Jerome Reyes",
+                email: "jroomreyes@yahoo.com",
+                password: "foobar",
+                password_confirmation: "foobar",
+                phone: "206-255-255",
+                address: "12345 Washington St., Bothell, WA, 98021")

@@ -13,6 +13,7 @@
 #  position        :string(255)      default("")
 #  address         :string(255)      default("")
 #  phone           :string(255)      default("")
+#  rate            :float
 #
 
 class User < ActiveRecord::Base
@@ -20,17 +21,14 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 64 }
 
-  #VALID_EMAIL_REGEX = /\A[\w+\-.]+@abcinc\.com\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  #TODO: Allow company e-mail only add a message for invalid emails
 
   has_secure_password
   validates :password, length: { minimum: 6 }
-  #TODO: validates :phone, length: { is: 10 }
 
   # Set default no. of users per page
   self.per_page = 5

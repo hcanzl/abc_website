@@ -13,6 +13,7 @@
 #  position        :string(255)      default("")
 #  address         :string(255)      default("")
 #  phone           :string(255)      default("")
+#  rate            :float
 #
 
 require 'spec_helper'
