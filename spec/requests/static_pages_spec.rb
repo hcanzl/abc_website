@@ -22,7 +22,7 @@ describe "StaticPages" do
     before { visit employee_path }
 
     it { should have_selector('h2', text: 'Welcome to the Employee Page') }
-    it { should have_selector('title', text: full_title('Employee')) }
+    it { should have_selector('title', text: full_title('Employee Page')) }
   end
 
   describe "Services Page" do

@@ -49,7 +49,7 @@ describe "AuthenticationPages" do
 
       describe "when attempting to visit a protected page" do
         before do
-          visit edit_user_path(user)
+          visit signin_path
           fill_in "Email",    with: user.email
           fill_in "Password", with: user.password
           click_button "Sign in"
@@ -57,7 +57,7 @@ describe "AuthenticationPages" do
 
         describe "after signing in" do
           it "should render the desired protected page" do
-            expect(page).to have_selector('title', text: full_title('Employee'))
+            expect(page).to have_selector('title', text: full_title('Employee Page'))
           end
 
           describe "when signing in again" do
@@ -70,45 +70,10 @@ describe "AuthenticationPages" do
             end
 
             it "should render the default (employee) page" do
-              expect(page).to have_selector('title', text: full_title('Employee'))
+              expect(page).to have_selector('title', text: full_title('Employee Page'))
             end
           end
         end
-      end
-
-      describe "in the Users controller" do
-
-        describe "visiting the edit page" do
-          before { visit edit_user_path(user) }
-
-          it { should have_selector('title', text: full_title('Sign in')) }
-        end
-
-        describe "submitting to the update action" do
-          before { patch user_path(user) }
-          specify { expect(response).to redirect_to(signin_path) }
-        end
-
-        describe "visiting the user index" do
-          before { visit users_path }
-          it { should have_selector('title', text: full_title('Sign in')) }
-        end
-      end
-    end
-
-    describe "as wrong user" do
-      let(:user) { FactoryGirl.create(:user) }
-      let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
-      before { sign_in user, no_capybara: true }
-
-      describe "visiting Users#edit page" do
-        before { visit edit_user_path(wrong_user) }
-        it { should_not have_selector('title', text: full_title('Edit user')) }
-      end
-
-      describe "submitting a PATCH request to the Users#update action" do
-        before { patch user_path(wrong_user) }
-        specify { expect(response).to redirect_to(root_url) }
       end
     end
 

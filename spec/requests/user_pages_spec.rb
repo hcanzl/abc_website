@@ -38,6 +38,8 @@ describe "UserPages" do
         end
       end
 
+      it { should_not have_link('delete', href: user_path(admin)) }
+
       describe "delete links" do
         it { should have_link('delete', href: user_path(User.first)) }
 

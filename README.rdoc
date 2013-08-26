@@ -1,3 +1,1 @@
-# ABC Inc. Website
-
-This is the ABC Inc. Website with employee access to payslip
+abc-website is a generic company website
