@@ -1,6 +1,7 @@
 AbcWebsite::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :messages, only: [:new, :create]
 
   root to: 'static_pages#home'
 
@@ -11,7 +12,7 @@ AbcWebsite::Application.routes.draw do
   match '/customer', to: 'static_pages#customer'
   match '/career', to: 'static_pages#career'
   match '/about', to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
+  match '/contact', to: 'messages#new'
   match '/employee', to: 'static_pages#employee'
 
   match '/administration', to: 'static_pages#administration'

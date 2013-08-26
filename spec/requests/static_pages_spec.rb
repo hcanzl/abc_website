@@ -55,8 +55,8 @@ describe "StaticPages" do
 
   # Only testing the links from the home page with no logged in user
   before { visit root_path }
-  {'Home' => '', 'About' => 'About', 'Contact Us' => 'Contact',
-    'Employee' => 'Sign in', 'Customer' => 'Customer',
+  {'Home' => '', 'About' => 'About Us', 'Contact Us' => 'Contact Us',
+    'Employee Page' => 'Sign in', 'Customer' => 'Customer',
     'Services' => 'Services',"#{I18n.t("company.name")}" => ''}.each do |link, title|
 
     it "should have the right links on the layout" do

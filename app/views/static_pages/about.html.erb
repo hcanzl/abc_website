@@ -1,3 +1,10 @@
-<% provide(:title, 'About')%>
+<% provide(:title, 'About Us')%>
 <h2>About Us</h2>
-<p>Who are we?</p>
+
+<b>Address: </b></br>
+<%= I18n.t("company.address1") %> </br>
+<%= I18n.t("company.address2") %> </br></br>
+
+<b>Phone: </b> <%= I18n.t("company.phone_num") %> </br>
+<b>E-mail: </b> <%= I18n.t("company.email") %>
+
